@@ -1,0 +1,639 @@
+/* Organogram Specific Styles */
+
+/* Main Organogram Container */
+.org-chart {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    position: relative;
+    scroll-margin-top: 90px; /* Account for fixed header */
+    z-index: 10;
+}
+
+/* Organization Levels */
+.org-level {
+    margin-bottom: 4rem;
+    position: relative;
+    padding: 1rem 0;
+    z-index: 15;
+}
+
+/* Level-specific styling for visual hierarchy */
+.org-level.level-1 {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 107, 53, 0.02) 100%);
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    margin-bottom: 3rem;
+}
+
+.org-level.level-2 {
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 102, 204, 0.02) 100%);
+    border-radius: 15px;
+    padding: 1.5rem 1rem;
+}
+
+.org-level.level-3 {
+    background: linear-gradient(135deg, rgba(108, 117, 125, 0.05) 0%, rgba(108, 117, 125, 0.02) 100%);
+    border-radius: 15px;
+    padding: 1.5rem 1rem;
+}
+
+.org-level.level-4 {
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.05) 0%, rgba(40, 167, 69, 0.02) 100%);
+    border-radius: 15px;
+    padding: 1.5rem 1rem;
+}
+
+/* Level Headers */
+.level-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 0;
+    position: relative;
+}
+
+.level-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #0066cc, #004499);
+    border-radius: 2px;
+}
+
+.level-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+}
+
+.level-description {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Level-specific header colors */
+.level-1 .level-title {
+    color: #ff6b35;
+}
+
+.level-1 .level-header::after {
+    background: linear-gradient(90deg, #ff6b35, #e55a2b);
+}
+
+.level-2 .level-title {
+    color: #0066cc;
+}
+
+.level-3 .level-title {
+    color: #6c757d;
+}
+
+.level-3 .level-header::after {
+    background: linear-gradient(90deg, #6c757d, #5a6268);
+}
+
+.level-4 .level-title {
+    color: #28a745;
+}
+
+.level-4 .level-header::after {
+    background: linear-gradient(90deg, #28a745, #218838);
+}
+
+.org-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Organization Nodes */
+.org-node {
+    background: #ffffff;
+    border: 2px solid #e1e8ed;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-width: 280px;
+    min-width: 250px;
+    position: relative;
+    z-index: 20;
+}
+
+.org-node:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #0066cc;
+}
+
+/* Node Images */
+.node-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #0066cc;
+}
+
+.node-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Node Content */
+.node-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.node-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0066cc;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.node-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Role-specific styling */
+.hub-leader {
+    border-color: #ff6b35;
+    background: linear-gradient(135deg, #fff 0%, #fff5f2 100%);
+}
+
+.hub-leader .node-title {
+    color: #ff6b35;
+}
+
+.hub-leader .node-image {
+    border-color: #ff6b35;
+}
+
+.technical-lead {
+    border-color: #28a745;
+}
+
+.technical-lead .node-title {
+    color: #28a745;
+}
+
+.technical-lead .node-image {
+    border-color: #28a745;
+}
+
+.community-lead {
+    border-color: #17a2b8;
+}
+
+.community-lead .node-title {
+    color: #17a2b8;
+}
+
+.community-lead .node-image {
+    border-color: #17a2b8;
+}
+
+.impact-lead {
+    border-color: #6f42c1;
+}
+
+.impact-lead .node-title {
+    color: #6f42c1;
+}
+
+.impact-lead .node-image {
+    border-color: #6f42c1;
+}
+
+.regional-lead {
+    border-color: #fd7e14;
+}
+
+.regional-lead .node-title {
+    color: #fd7e14;
+}
+
+.regional-lead .node-image {
+    border-color: #fd7e14;
+}
+
+.student-coordinator {
+    border-color: #20c997;
+}
+
+.student-coordinator .node-title {
+    color: #20c997;
+}
+
+.student-coordinator .node-image {
+    border-color: #20c997;
+}
+
+.ethics-advisor {
+    border-color: #dc3545;
+}
+
+.ethics-advisor .node-title {
+    color: #dc3545;
+}
+
+.ethics-advisor .node-image {
+    border-color: #dc3545;
+}
+
+.mentor-coordinator {
+    border-color: #6610f2;
+}
+
+.mentor-coordinator .node-title {
+    color: #6610f2;
+}
+
+.mentor-coordinator .node-image {
+    border-color: #6610f2;
+}
+
+/* Connection Lines - REMOVED */
+
+/* Level 4 - Community Groups */
+.community-groups {
+    gap: 1.5rem;
+}
+
+.org-group {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 300px;
+    min-width: 280px;
+    transition: all 0.3s ease;
+}
+
+.org-group:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-color: #0066cc;
+}
+
+.group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.group-header i {
+    font-size: 1.5rem;
+    color: #0066cc;
+}
+
+.group-header h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.group-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.role-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.role-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #0066cc;
+}
+
+.role-desc {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.3;
+}
+
+/* Governance Section */
+.governance-section {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 2px solid #e9ecef;
+    position: relative;
+    z-index: 10;
+}
+
+.governance-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+}
+
+.governance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.governance-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.governance-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-color: #0066cc;
+}
+
+.governance-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #0066cc, #004499);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.governance-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.governance-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+}
+
+.governance-item p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Meetings Section */
+.meetings-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.meetings-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+}
+
+.meetings-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.meeting-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.meeting-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-color: #0066cc;
+}
+
+.meeting-frequency {
+    background: linear-gradient(135deg, #0066cc, #004499);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: center;
+}
+
+.meeting-details h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.meeting-details p {
+    font-size: 0.9rem;
+    color: #0066cc;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.meeting-purpose {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .org-chart {
+        padding: 1rem;
+    }
+    
+    .org-level {
+        margin-bottom: 3rem;
+        padding: 1rem 0.5rem;
+    }
+    
+    .level-header {
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .level-title {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+    
+    .level-description {
+        font-size: 1rem;
+    }
+    
+    .org-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .org-node {
+        max-width: 100%;
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .community-groups {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .org-group {
+        max-width: 100%;
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .governance-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .meeting-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .meeting-frequency {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .org-level {
+        margin-bottom: 2.5rem;
+        padding: 0.5rem;
+    }
+    
+    .level-header {
+        margin-bottom: 1.5rem;
+        padding: 0.75rem 0;
+    }
+    
+    .level-title {
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .level-description {
+        font-size: 0.9rem;
+    }
+    
+    .level-header::after {
+        width: 40px;
+        height: 2px;
+    }
+    
+    .org-node {
+        padding: 1rem;
+    }
+    
+    .node-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .node-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .node-title {
+        font-size: 0.9rem;
+    }
+    
+    .node-description {
+        font-size: 0.8rem;
+    }
+    
+    .governance-section h3,
+    .meetings-section h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .org-chart {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .org-node {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .org-node:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .governance-item,
+    .meeting-item {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .governance-item:hover,
+    .meeting-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}

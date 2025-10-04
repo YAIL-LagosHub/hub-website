@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visibility Test</title>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .old-gradient {
+            background: linear-gradient(135deg, #0066CC, #004499);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .new-gradient {
+            background: linear-gradient(135deg, #4da6ff, #0066CC);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .hero-old {
+            background: linear-gradient(135deg, #3399FF, #0066CC);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-old::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+        }
+        .hero-new {
+            background: linear-gradient(135deg, #4da6ff, #0066CC);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-new::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visibility Test - Before and After</h1>
+    
+    <div class="test-section">
+        <h2>Impact CTA - Old (Dark Blue)</h2>
+        <div class="old-gradient">
+            <h3>Ready to Create Impact?</h3>
+            <p>Join our community of young leaders and help us co-create AI solutions that serve humanity and advance the UN Sustainable Development Goals.</p>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Impact CTA - New (Lighter Blue)</h2>
+        <div class="new-gradient">
+            <h3>Ready to Create Impact?</h3>
+            <p>Join our community of young leaders and help us co-create AI solutions that serve humanity and advance the UN Sustainable Development Goals.</p>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Hero Section - Old (Dark with Heavy Overlay)</h2>
+        <div class="hero-old">
+            <div class="content">
+                <h1>Get Involved</h1>
+                <p>Join our community of young AI leaders driving ethical innovation for sustainable development in Lagos and beyond.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Hero Section - New (Lighter with Minimal Overlay)</h2>
+        <div class="hero-new">
+            <div class="content">
+                <h1>Get Involved</h1>
+                <p>Join our community of young AI leaders driving ethical innovation for sustainable development in Lagos and beyond.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
